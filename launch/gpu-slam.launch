@@ -1,0 +1,65 @@
+<launch>
+    
+  <param name="use_sim_time" value="true"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0 0 0 0 0 0 /base_footprint /base_scan 20" />
+
+  <node pkg="gpu-slam" type="gpu-slam" name="slam" output="screen">
+
+    <param name="map_frame" value="map"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="urbase_frame" value="urbase_link"/>
+    <param name="base_frame" value="base_footprint"/>
+    <param name="laser_frame" value="base_scan"/>
+    <param name="laser_topic" value="scan"/>
+    <param name="particle_topic" value="particles"/>
+
+    <param name="map_to_odom_publish_period" value="0.1"/>
+    <param name="map_to_urbase_pl_period" value="0.1"/>
+    <param name="global_map_publish_period" value="1"/>
+    <param name="local_map_publish_period" value="0.5"/>
+    <param name="particle_pl_period" value="0.5"/>
+
+    <param name="particle_count" value="5"/>
+    <param name="initialization_scan" value="30"/>
+
+    <param name="x_x" value="0.01"/>
+    <param name="x_y" value="0.01"/>
+    <param name="x_r" value="0.01"/>
+
+    <param name="y_x" value="0.01"/>
+    <param name="y_y" value="0.01"/>
+    <param name="y_r" value="0.01"/>
+
+    <param name="r_x" value="0.01"/>
+    <param name="r_y" value="0.01"/>
+    <param name="r_r" value="0.01"/>
+
+    <param name="min_range" value="0.1"/>
+    <param name="max_range" value="3.5"/>
+
+    <param name="corr_iter_thresh_num" value="5"/>
+    <param name="kernel_size_m" value="0.1"/>
+
+    <param name="neff_thresh" value="0.5"/>
+    <param name="dx_resample_thresh" value="1"/>
+    <param name="dy_resample_thresh" value="1"/>
+    <param name="dt_resample_thresh" value="1"/>
+
+    <param name="initial_global_map_width" value="20"/>
+    <param name="initial_global_map_height" value="20"/>
+    <param name="initial_local_map_width" value="10"/>
+    <param name="initial_local_map_height" value="10"/>
+    <param name="m_per_cell" value="0.01"/>
+    <param name="true_positive" value="0.9"/>
+    <param name="true_negative" value="0.5"/>
+    <param name="w_thresh" value="0.3"/>
+    <param name="dx_map_update_thresh" value="0.02"/>
+    <param name="dy_map_update_thresh" value="0.02"/>
+    <param name="dt_map_update_thresh" value="0.02"/>
+
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz"  args="-d $(find gpu-slam)/rviz/gpu-slam.rviz"/>
+
+</launch>
