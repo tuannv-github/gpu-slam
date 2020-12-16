@@ -20,7 +20,7 @@
     <param name="local_map_publish_period" value="0.5"/>
     <param name="particle_pl_period" value="0.5"/>
 
-    <param name="particle_count" value="5"/>
+    <param name="particle_count" value="100"/>
     <param name="initialization_scan" value="30"/>
 
     <param name="x_x" value="0.01"/>

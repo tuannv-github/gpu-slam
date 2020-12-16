@@ -1,0 +1,54 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\graphicspath{{imgs/}{00_misc/imgs/}}
+
+
+    \pagestyle{empty}
+    \begin{minipage}[b][3cm][t]{16cm}
+        % Draw border
+        \begin{tikzpicture}[remember picture, overlay]
+            % Thin line
+            \draw [line width=1pt]
+                ($ (current page.north west) + (1.5cm,-1.5cm) $)
+                rectangle
+                ($ (current page.south east) + (-1.5cm,1.5cm) $);
+            % Thick line
+            \draw [line width=3pt]
+                ($ (current page.north west) + (1.65cm,-1.65cm) $)
+                rectangle
+                ($ (current page.south east) + (-1.65cm,1.65cm) $); 
+        \end{tikzpicture}
+
+        \begin{center}
+            \begin{large}
+                    \textbf{ĐẠI HỌC BÁCH KHOA TP. HỒ CHÍ MINH\\
+                     KHOA ĐIỆN - ĐIỆN TỬ}\\
+            \end{large}
+            \textbf{*******************}\\[2cm]
+            \includegraphics[scale=0.5]{logoBK.png}\\[1.5cm]
+                {\fontsize{15}{1}\selectfont Báo cáo bài tập lớn\\ Nhập môn điều khiển thông minh}\\[2cm]
+                {\fontsize{20}{24}\selectfont \textbf{\parbox[c][3cm]{15cm}{\centering A CUDA IMPLEMENTATION OF GMAPPING}} }\\[3.2cm]
+        \end{center}
+
+        {
+            \fontsize{15}{1}\selectfont
+            \begin{flushright}
+            \parbox[t][4cm]{8cm}
+            {
+                GVHD: Ts. Phạm Việt Cường\\[4pt]
+                SVTH: Ngô Văn Tuân - 1613861\\[4pt]
+                Nhóm:
+            }
+            \end{flushright}
+        }
+        
+        \begin{center}
+            {\fontsize{14}{1}\selectfont TP. Hồ Chí Minh, \today }
+        \end{center}
+
+    \end{minipage}
+
+\tableofcontents
+
+\end{document}

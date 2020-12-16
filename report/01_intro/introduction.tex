@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Giới thiệu}
+
+\section{Giới thiệu}
+Gmapping package là một ROS package với mục tiêu sử dụng particle filter để kết hợp ranging data (từ Lidar) và odometry data (từ động cơ, IMU, giả lập từ Lidar, ...) để  thực hiện bài toán SLAM (Simultaneous localization and mapping).
+
+Source code của Gmapping package đã được publish trên \href{https://github.com/ros-perception/slam_gmapping.}{Github}. Source code này sử dụng ngôn ngữ lập trình C++ và chạy hoàn toàn trên CPU.
+
+Particle filter với đặc điểm sử dụng nhiều particle, mỗi particle là một giả thuyết về trạng thái của hệ thống, ta nhận thấy rằng việc sử dụng motion model và tính weight cho từng particle có thể được thực hiện một cách độc lập nên ta có thể ứng dụng một nền tảng tính toán song song để tăng tốc hai bước này (thay vì tính toán một cách tuần tự sử dụng CPU), qua đó giảm thời gian chạy của thuật toán cho mỗi vòng lặp, tăng chất lượng đáp ứng của hệ thống.
+
+CUDA (Compute Unified Device Architecture) là một nền tảng tính toán song song được phát triển bởi NVIDIA. CUDA có hầu hết trên các GPU của NVIDIA. Ngôn ngữ lập trình CUDA hoàn toàn tương thích với C/C++ đồng thời bổ  sung các cú pháp điều khiển GPU thực hiện các tính toán song song. Thư viện CUDA có rất nhiều công cụ giúp việc phát triển ứng dụng trên nền tảng này được thuận lợi hợn, các hướng dẫn trên mạng internet cũng rất phong phú. Với các ưu điểm trên, CUDA được đề tài chọn làm nền tảng tính toán song song để implement Gmapping.
+
+\section{Mục tiêu đề tài}
+Đề tài hoàn thành các mục tiêu sau đây:
+\begin{itemize}
+    \item Implement GMapping trên nền tảng CUDA.
+    \item So sánh CUDA implementation và CPU implementation.
+\end{itemize}
+
+\end{document}

@@ -1,7 +1,7 @@
 #include <Slam.h>
 #include <nav_msgs/GetMap.h>
 #include <math.h>
-
+#include <chrono>
 namespace SLAM{
 
 Slam::Slam():
@@ -303,7 +303,8 @@ bool Slam::get_movement(float &dx, float &dy, float &dt, const sensor_msgs::Lase
 
 void Slam::on_range_msg_callback(const sensor_msgs::LaserScan::ConstPtr& scan_msg){
 
-    start_ = ros::WallTime::now();
+    // start_ = ros::WallTime::now();
+    auto t1 = std::chrono::high_resolution_clock::now();
 
     ROS_INFO_ONCE("First scan message received");
 
@@ -391,10 +392,14 @@ void Slam::on_range_msg_callback(const sensor_msgs::LaserScan::ConstPtr& scan_ms
         }
     }
 
-    end_ = ros::WallTime::now();
+    // end_ = ros::WallTime::now();
+    // std_msgs::Float64 msg;
+    // msg.data = (double)(end_ - start_).toNSec()/10e6;
     std_msgs::Float64 msg;
-    msg.data = ((double)10e6) / ((double)(end_ - start_).toNSec());
+    auto t2 = std::chrono::high_resolution_clock::now();
+    msg.data = std::chrono::duration_cast<std::chrono::microseconds>(t2-t1).count();
     fps_plr.publish(msg);
+
 }
 
 void Slam::map_to_odom_pl_thread(){

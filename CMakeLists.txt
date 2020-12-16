@@ -41,3 +41,8 @@ target_link_libraries(${PROJECT_NAME}
   ${GSL_LIBRARIES}
   ${catkin_LIBRARIES}
 )
+
+install(PROGRAMS
+  scripts/listener.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

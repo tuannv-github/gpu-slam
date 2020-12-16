@@ -1,0 +1,64 @@
+\documentclass[oneside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{bytefield}
+\usepackage{microtype}
+\usepackage{alphabeta}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor,colortbl}
+\usepackage[titletoc]{appendix}
+\usepackage[hidelinks]{hyperref}
+
+\bibliography{references.bib}
+
+\definecolor{Gray}{gray}{0.85}
+\definecolor{LightCyan}{rgb}{0.2,0.7,1}
+
+\newcolumntype{g}{>{\columncolor{Gray}}c}
+\newcolumntype{w}{>{\columncolor{white}}c}
+\newcolumntype{L}{>{\arraybackslash}X}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1\textwidth}}
+
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+
+\DeclareMathOperator*{\argmax}{argmax} 
+\DeclareMathOperator*{\argmin}{argmin} 
+
+\geometry{
+    left=20mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm,
+    heightrounded
+}
+
+\begin{document}
+
+\subfile{00_misc/cover.tex}
+\subfile{00_misc/fig.tex}
+\subfile{00_misc/tab.tex}
+
+\subfile{01_intro/introduction.tex}
+\subfile{02_theory/cuda.tex}
+\subfile{05_software/software.tex}
+\subfile{06_result/result.tex}
+
+\end{document}
