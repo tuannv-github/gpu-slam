@@ -17,6 +17,7 @@ sudo apt-get install ros-melodic-turtlebot3-teleop
 
 export TURTLEBOT3_MODEL=waffle_pi
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch turtlebot3_gazebo turtlebot3_house.launch
 ```
 In the second terminal tab:
 
