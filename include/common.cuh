@@ -14,6 +14,6 @@ typedef enum {
     return; \
 }
 
-};
+}
 
 #endif

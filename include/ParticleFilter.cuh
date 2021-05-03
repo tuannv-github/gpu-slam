@@ -1,7 +1,6 @@
 #ifndef _PARTICLE_FILTER_H_
 #define _PARTICLE_FILTER_H_
-
-#include <ros/ros.h>
+    
 #include <curand_kernel.h>
 #include <boost/thread.hpp>
 
@@ -162,6 +161,6 @@ public:
     bool global_map_update_force();                         /* Update map after filtering*/
 };
 
-};
+}
 
 #endif

@@ -1,11 +1,9 @@
 #include <Slam.h>
-#include <nav_msgs/GetMap.h>
 #include <math.h>
 #include <chrono>
 namespace SLAM{
 
-Slam::Slam():
-  pnh("~")
+Slam::Slam(): Node("gpu_slam"), pnh("~")
 {
     /* Initialize parameters */
     if(!pnh.getParam("map_frame", map_frame))

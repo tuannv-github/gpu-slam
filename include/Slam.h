@@ -2,23 +2,22 @@
 #define _SLAM_H_
 
 #include <stdint.h>
-#include <ros/ros.h>
-#include <tf/transform_listener.h>
-#include <tf/transform_broadcaster.h>
+#include <rclcpp/rclcpp.hpp>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/transform_broadcaster.h>
 #include <message_filters/subscriber.h>
-#include <sensor_msgs/LaserScan.h>
-#include <sensor_msgs/Imu.h>
-#include <tf/message_filter.h>
+#include <sensor_msgs/msg/laser_scan.h>
+#include <sensor_msgs/msg/imu.h>
+#include <tf2_ros/message_filter.h>
 #include <boost/thread.hpp>
-#include <nav_msgs/GetMap.h>
-#include <geometry_msgs/PoseArray.h>
-#include <std_msgs/Float64.h>
+#include <geometry_msgs/msg/pose_array.h>
+#include <std_msgs/msg/float64.h>
 
-#include <ParticleFilter.cuh>
+#include "ParticleFilter.cuh"
 
 namespace SLAM{
 
-class Slam{
+class Slam : public rclcpp::Node{
 
 public:
     Slam();

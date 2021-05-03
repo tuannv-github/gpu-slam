@@ -1,8 +1,6 @@
 #ifndef _CUDA_UTILS_H_
 #define _CUDA_UTILS_H_
 
-#include <ros/ros.h>
-
 #define MAX_THREAD      1024
 #define MAX_BLOCK_SIZE  32
 
